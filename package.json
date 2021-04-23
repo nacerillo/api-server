@@ -1,0 +1,28 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "Lab 04 Data Model",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nacerillo/api-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nacerillo/api-server/issues"
+  },
+  "homepage": "https://github.com/nacerillo/api-server#readme",
+  "dependencies": {
+    "@code-fellows/supergoose": "^1.1.0",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "mongoose": "^5.12.5",
+    "supertest": "^6.1.3"
+  }
+}
