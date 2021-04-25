@@ -18,6 +18,7 @@ describe("Food Actions", () => {
     return food.create(obj).then((record) => {
       // in general, review this technique for similar object comparison
       Object.keys(obj).forEach((item) => {
+        console.log(record[item]);
         expect(record[item]).toEqual(expected[item]);
       });
     });
@@ -47,10 +48,16 @@ describe("Food Actions", () => {
   });
 
   it("need to be able to upate an item", async () => {
-    let obj = { name: "test food 2", calories: 9999, type: "VEG" };
-    let updated = { name: "test food 2", calories: 3000, type: "FRUIT" };
+    let obj = { name: "test food 1", calories: 9999, type: "VEG" };
+    let update_data = { name: "test food 2", calories: 3000, type: "FRUIT" };
     return food.create(obj).then((record) => {
-      return food.update(record._id, updated).then((item) => {});
+      return food.update(record.id, update_data).then((item) => {
+        console.log("created record", item);
+        expect(item._id).toEqual(record._id);
+        expect(item.name).toEqual("test food 2");
+        expect(item.calories).toEqual(3000);
+        expect(item.type).toEqual("FRUIT");
+      });
     });
   });
 });
