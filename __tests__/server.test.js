@@ -1,8 +1,9 @@
 "user strict";
 
 const { server } = require("../src/server.js");
-const supergoose = require("@code-fellows/supergoose"); // mock request engine
-const mockRequest = supergoose(server);
+//const supergoose = require("@code-fellows/supergoose"); // mock request engine
+const supertest = require("supertest");
+const mockRequest = supertest(server);
 // this pulls in and configures and runs mongo memory server and supertest
 
 const DataCollection = require("../src/models/data-collection-class.js");
@@ -42,7 +43,7 @@ describe("Food Actions", () => {
   });
   // bad method
   it("should send response 404 when bad method is given", async () => {
-    return mockRequest.get("/").then((data) => {
+    return mockRequest.get("/badmethod").then((data) => {
       expect(data.status).toBe(404);
     });
   });
